@@ -11,4 +11,12 @@ defmodule IdeaHubWeb.IdeasController do
       |> render("created.json", %{idea: idea})
     end
   end
+
+  def get_all(conn, _params) do
+    with {:ok, ideas} <- Idea.get_all() do
+      conn
+      |> put_status(:ok)
+      |> render("view_all.json", %{ideas: ideas})
+    end
+  end
 end

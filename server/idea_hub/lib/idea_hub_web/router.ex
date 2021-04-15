@@ -9,6 +9,7 @@ defmodule IdeaHubWeb.Router do
     pipe_through :api
 
     post "/ideas", IdeasController, :create
+    get "/ideas", IdeasController, :get_all
   end
 
   # Enables LiveDashboard only for development
