@@ -10,6 +10,14 @@ defmodule IdeaHubWeb.IdeasView do
     }
   end
 
+  def render("view.json", %{idea: %Idea{id: id, title: title, description: description}}) do
+    %{
+      id: id,
+      title: title,
+      description: description
+    }
+  end
+
   def render("view.json", %{ideas: %Idea{id: id, title: title, description: description}}) do
     %{
       id: id,

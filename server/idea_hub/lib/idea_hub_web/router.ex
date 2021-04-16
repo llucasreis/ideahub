@@ -10,6 +10,7 @@ defmodule IdeaHubWeb.Router do
 
     post "/ideas", IdeasController, :create
     get "/ideas", IdeasController, :get_all
+    get "/ideas/:id", IdeasController, :get_by_id
   end
 
   # Enables LiveDashboard only for development

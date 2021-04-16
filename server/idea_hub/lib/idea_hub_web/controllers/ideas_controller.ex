@@ -19,4 +19,12 @@ defmodule IdeaHubWeb.IdeasController do
       |> render("view_all.json", %{ideas: ideas})
     end
   end
+
+  def get_by_id(conn, %{"id" => id}) do
+    with {:ok, %IdeaSchema{} = idea} <- Idea.get_by_id(id) do
+      conn
+      |> put_status(:ok)
+      |> render("view.json", idea: idea)
+    end
+  end
 end
